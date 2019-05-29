@@ -1,0 +1,5 @@
+{
+    "name": "flagstudio/nova-admin-bar",
+    "description": "Nova admin bar for laravel.",
+    "require": {}
+}
