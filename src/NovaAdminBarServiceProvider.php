@@ -29,6 +29,10 @@ class NovaAdminBarServiceProvider extends ServiceProvider
         });
 
         $this->publishes([
+            //Config
+            __DIR__ . '/config/adminbar.php' => config_path('adminbar.php'),
+
+            //Assets
             __DIR__ . '/resources/assets/css' => public_path('vendor/nova-admin-bar/css'),
         ], 'NovaAdminBar');
 
