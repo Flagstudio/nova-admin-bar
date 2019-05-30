@@ -29,6 +29,7 @@
     -ms-flex-align: center;
     align-items: center;
     outline: none;
+    text-decoration: none;
 }
 
 .admin-bar > li {
@@ -76,7 +77,6 @@
     height: 100%;
     padding-left: 5px;
     padding-right: 5px;
-    border-radius: 5px;
     font-family: "Roboto", Arial, sans-serif;
     font-size: 1.25rem;
     font-weight: 400;
@@ -127,11 +127,6 @@
     transform: translate(0, 36px) scale(0.5);
 }
 
-.admin-bar__submenu li {
-    margin-top: 3px;
-    margin-bottom: 3px;
-}
-
 .admin-bar__submenu a {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -143,6 +138,10 @@
     justify-content: center;
     text-align: center;
     font-size: 14px;
+}
+
+.admin-bar__submenu li:last-child a {
+    border-radius: 0 0 5px 5px;
 }
 
 .admin-bar__icon {
