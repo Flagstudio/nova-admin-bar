@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'icon' => '/assets/images/flag_logo-1.svg',
+    'icon' => '/vendor/nova-admin-bar/logo.svg',
     
     'dropdown_links' => [
         'Laravel Docs' => 'https://laravel.com/docs/master/eloquent-collections',

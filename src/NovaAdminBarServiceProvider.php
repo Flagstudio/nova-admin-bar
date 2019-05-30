@@ -34,6 +34,7 @@ class NovaAdminBarServiceProvider extends ServiceProvider
 
             //Assets
             __DIR__ . '/resources/assets/css' => public_path('vendor/nova-admin-bar/css'),
+            __DIR__ . '/resources/assets/logo.svg' => public_path('vendor/nova-admin-bar/logo.svg'),
         ], 'NovaAdminBar');
 
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'NovaAdminBar');
