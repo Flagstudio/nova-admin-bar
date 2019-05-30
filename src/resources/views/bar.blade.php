@@ -3,21 +3,35 @@
     <ul class="admin-bar">
         <li class="admin-bar__icons-flag">
             <a target="_blank" href="{{ config('nova.path') ?: 'nova' }}">
-                <img class="admin-bar__icons-first" src="{{ asset('images/flag_logo-1.svg')  }}" alt="flagstudio.ru">
+                <img class="admin-bar__icons-first" src="{{ config('adminbar.icon') }}" alt="flagstudio.ru">
             </a>
 
-            <ul class="admin-bar__submenu">
-                <li><a target="_blank" href="https://laravel.com/docs/master/eloquent-collections">Laravel Docs</a></li>
-                <li><a target="_blank" href="https://nova.laravel.com/docs/1.0/resources/fields.html">Nova Docs</a></li>
-                <li><a target="_blank" href="https://flagstudio.ru">Flag Studio</a></li>
-            </ul>
+            @if ($dropDownLinks = config('adminbar.dropdown_links'))
+                <ul class="admin-bar__submenu">
+                    @foreach ($dropDownLinks as $key => $link)
+                        <li>
+                            <a target="_blank" href="{{ $link }}">{{ $key }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
         </li>
-        <li>
-            <a href="">Edit main page for guests
-                {{--<svg class="admin-bar__icon">--}}
-                {{--<use xlink:href="#icon-pencil"/>--}}
-                {{--</svg>--}}
-            </a>
-        </li>
+        @if ($links = config('adminbar.links'))
+            @foreach ($links as $key => $link)
+                <li>
+                    <a href="{{ $link }}">{{ $key }}</a>
+                </li>
+            @endforeach
+        @endif
+        @if (isset($showLink))
+            <li>
+                <a href="{{ $showLink }}">Show</a>
+            </li>
+        @endif
+        @if (isset($editLink))
+            <li>
+                <a href="{{ $editLink }}">Edit</a>
+            </li>
+        @endif
     </ul>
 </div>
