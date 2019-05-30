@@ -10,7 +10,7 @@ return [
     ],
     
     'links' => [
-        'Admin panel' => '/admin',
+        'Admin panel' => '/nova',
     ],
 
     //Namespace to nova resources
