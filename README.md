@@ -13,3 +13,17 @@ The defaults configuration settings are set in config/adminbar.php. You can publ
 Publish assets:
 
 `php artisan vendor:publish --tag=NovaAdminBarAssets`
+
+# Usage
+
+To output admin bar use this code in your view:
+
+`{!! AdminBar::generate() !!}`
+
+To set model for editing use this code before generate admin bar:
+
+`{{ AdminBar::setModel($post) }}`
+
+You can specify resource name for model if it named differently
+
+`{{ AdminBar::setResource('PostResource') }}`
