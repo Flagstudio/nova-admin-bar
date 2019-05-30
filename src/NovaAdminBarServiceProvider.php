@@ -30,14 +30,16 @@ class NovaAdminBarServiceProvider extends ServiceProvider
             return new \Flagstudio\NovaAdminBar\AdminBar;
         });
 
+        //Publish config
         $this->publishes([
-            //Config
             __DIR__ . '/config/adminbar.php' => config_path('adminbar.php'),
+        ], 'NovaAdminBarConfig');
 
-            //Assets
+        //Publish assets
+        $this->publishes([
             __DIR__ . '/resources/assets/css' => public_path('vendor/nova-admin-bar/css'),
             __DIR__ . '/resources/assets/logo.svg' => public_path('vendor/nova-admin-bar/logo.svg'),
-        ], 'NovaAdminBar');
+        ], 'NovaAdminBarAssets');
 
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'NovaAdminBar');
     }
