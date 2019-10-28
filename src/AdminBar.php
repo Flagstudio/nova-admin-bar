@@ -13,6 +13,9 @@ class AdminBar
      */
     public function generate()
     {
+        $editLink = null;
+        $showLink = null;
+
         if (self::$model) {
             $resourceName = self::$resource ?: $this->getModel(self::$model);
             $resource = (config('adminbar.resources_namespace') ?: '\\App\\Nova\\') . $resourceName;

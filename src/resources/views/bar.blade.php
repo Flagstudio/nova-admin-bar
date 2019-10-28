@@ -23,12 +23,12 @@
                 </li>
             @endforeach
         @endif
-        @if (isset($showLink))
+        @if ($showLink)
             <li>
                 <a href="{{ $showLink }}">Show</a>
             </li>
         @endif
-        @if (isset($editLink))
+        @if ($editLink)
             <li>
                 <a href="{{ $editLink }}">Edit</a>
             </li>
