@@ -24,7 +24,19 @@ class AdminBar
             $editLink = $showLink . '/edit';
         }
 
-        return view('NovaAdminBar::bar', compact('editLink', 'showLink'))->render();
+        $branch = $this->getBranch();
+
+        return view('NovaAdminBar::bar', compact('editLink', 'showLink', 'branch'))->render();
+    }
+
+    public function getBranch()
+    {
+        $stringfromfile = file(base_path('.git/HEAD'), FILE_USE_INCLUDE_PATH);
+        $firstLine = $stringfromfile[0]; //get the string from the array
+        $explodedstring = explode("/", $firstLine, 3); //seperate out by the "/" in the string
+        $branchname = $explodedstring[2];
+
+        return $branchname;
     }
 
     /**
