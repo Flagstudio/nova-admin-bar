@@ -32,9 +32,12 @@ class AdminBar
     public function getBranch()
     {
         $stringfromfile = file(base_path('.git/HEAD'), FILE_USE_INCLUDE_PATH);
-        $firstLine = $stringfromfile[0]; //get the string from the array
+        $firstLine = $stringfromfile[0] ?? ''; //get the string from the array
+        if (!$firstLine) {
+            return '';
+        }
         $explodedstring = explode("/", $firstLine, 3); //seperate out by the "/" in the string
-        $branchname = $explodedstring[2];
+        $branchname = $explodedstring[2] ?? '';
 
         return $branchname;
     }
