@@ -28,7 +28,7 @@ class AdminBar
 
         if (self::$resource && !self::$model) {
             $resource = (config('adminbar.resources_namespace') ?: '\\App\\Nova\\') . self::$resource;
-            $indexLink =  config('nova.path') . '/resources/' . $resource::uriKey()
+            $indexLink =  config('nova.path') . '/resources/' . $resource::uriKey();
         }
 
         $branch = $this->getBranch();
