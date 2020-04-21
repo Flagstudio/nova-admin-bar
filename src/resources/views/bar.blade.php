@@ -33,8 +33,10 @@
                 <a href="{{ $editLink }}">Edit</a>
             </li>
         @endif
-        <li style="margin-left: auto; margin-right: 100px;">
-            <a>Branch: {{ $branch }}</a>
-        </li>
+        @if ($branch)
+            <li style="margin-left: auto; margin-right: 100px;">
+                <a>Branch: {{ $branch }}</a>
+            </li>
+        @endif
     </ul>
 </div>
