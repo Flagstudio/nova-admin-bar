@@ -15,18 +15,25 @@ class AdminBar
     {
         $editLink = null;
         $showLink = null;
+        $indexLink = null;
 
         if (self::$model) {
             $resourceName = self::$resource ?: $this->getModel(self::$model);
             $resource = (config('adminbar.resources_namespace') ?: '\\App\\Nova\\') . $resourceName;
             $uriKey = $resource::uriKey();
-            $showLink = config('nova.path') . '/resources/' . $uriKey . '/' . self::$model->id;
+            $indexLink =  config('nova.path') . '/resources/' . $uriKey;
+            $showLink = $indexLink . '/' . self::$model->id;
             $editLink = $showLink . '/edit';
+        }
+
+        if (self::$resource && !self::$model) {
+            $resource = (config('adminbar.resources_namespace') ?: '\\App\\Nova\\') . self::$resource;
+            $indexLink =  config('nova.path') . '/resources/' . $resource::uriKey()
         }
 
         $branch = $this->getBranch();
 
-        return view('NovaAdminBar::bar', compact('editLink', 'showLink', 'branch'))->render();
+        return view('NovaAdminBar::bar', compact('editLink', 'showLink', 'indexLink', 'branch'))->render();
     }
 
     public function getBranch()

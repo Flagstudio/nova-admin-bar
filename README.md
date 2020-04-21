@@ -20,10 +20,12 @@ To output admin bar use this code in your view:
 
 `{!! AdminBar::generate() !!}`
 
-To set model for editing use this code before generate admin bar:
+To set model for generate edit and view links use this code before generate admin bar:
 
 `{{ AdminBar::setModel($post) }}`
 
 You can specify resource name for model if it named differently
 
 `{{ AdminBar::setResource('PostResource') }}`
+
+You can also use set resource without setting model to generate link to resource index page.

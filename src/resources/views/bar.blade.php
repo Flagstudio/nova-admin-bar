@@ -23,6 +23,11 @@
                 </li>
             @endforeach
         @endif
+        @if ($indexLink)
+            <li>
+                <a href="{{ $indexLink }}">List</a>
+            </li>
+        @endif
         @if ($showLink)
             <li>
                 <a href="{{ $showLink }}">Show</a>
