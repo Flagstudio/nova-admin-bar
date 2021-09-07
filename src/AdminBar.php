@@ -32,8 +32,23 @@ class AdminBar
         }
 
         $branch = $this->getBranch();
+        $commit = $this->getCommit();
+        $env = config('app.env');
+        $date = $this->getCommitDate();
 
-        return view('NovaAdminBar::bar', compact('editLink', 'showLink', 'indexLink', 'branch'))->render();
+        return view(
+            'NovaAdminBar::bar',
+            compact(
+                'editLink',
+                'showLink',
+                'indexLink',
+                'branch',
+                'commit',
+                'env',
+                'date'
+            )
+        )
+            ->render();
     }
 
     public function getBranch()
@@ -48,6 +63,29 @@ class AdminBar
             $branchname = $explodedstring[2] ?? '';
 
             return $branchname;
+        } catch (\Exception $exception) {
+            return '';
+        }
+    }
+
+    public function getCommit()
+    {
+        try {
+            $stringfromfile =  file(base_path('.git/COMMIT_EDITMSG'), FILE_USE_INCLUDE_PATH);
+            $commit = $stringfromfile[0] ?? '';
+
+            return $commit;
+        } catch (\Exception $exception) {
+            return '';
+        }
+    }
+
+    public function getCommitDate()
+    {
+        try {
+            $datetime = shell_exec("git log -1 --pretty=format:'%ci'");
+            $date = explode(' ', $datetime)[0];
+            return $date;
         } catch (\Exception $exception) {
             return '';
         }
