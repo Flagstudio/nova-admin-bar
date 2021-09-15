@@ -35,6 +35,8 @@ class AdminBar
         $commit = $this->getCommit();
         $env = config('app.env');
         $date = $this->getCommitDate();
+        $position = 'top'; //or bottom
+        $debugBarEnabled = config('debugbar.enabled');
 
         return view(
             'NovaAdminBar::bar',
@@ -45,7 +47,9 @@ class AdminBar
                 'branch',
                 'commit',
                 'env',
-                'date'
+                'date',
+                'position',
+                'debugBarEnabled'
             )
         )
             ->render();
