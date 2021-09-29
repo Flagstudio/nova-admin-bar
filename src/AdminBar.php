@@ -35,7 +35,7 @@ class AdminBar
         $commit = $this->getCommit();
         $env = config('app.env');
         $date = $this->getCommitDate();
-        $position = 'top'; //or bottom
+        $position = config('adminbar.position');
         $debugBarEnabled = config('debugbar.enabled');
 
         return view(
