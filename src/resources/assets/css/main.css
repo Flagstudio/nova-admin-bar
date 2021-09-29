@@ -88,6 +88,11 @@
     opacity: 1;
 }
 
+.admin-bar--bottom .admin-bar__icon-flag:hover .admin-bar__submenu,
+.admin-bar--bottom .admin-bar__icon-flag:focus .admin-bar__submenu {
+    transform: translate(0, -36px) scale(1);
+}
+
 .admin-bar a {
     display: flex;
     justify-content: center;
