@@ -10,7 +10,7 @@ return [
     ],
     
     'links' => [
-        'Admin panel' => '/nova',
+        'Admin panel' => '/_admin',
     ],
 
     /*
@@ -22,6 +22,10 @@ return [
     |
     */
     'position' => 'top',
+
+    'commit' => env('GIT_COMMIT', ''),
+    'branch' => env('GIT_BRANCH', ''),
+    'date' => env('GIT_DATE', ''),
 
     //Namespace to nova resources
     'resources_namespace' => '\\App\\Nova\\',

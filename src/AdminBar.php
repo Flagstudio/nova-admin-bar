@@ -2,6 +2,8 @@
 
 namespace Flagstudio\NovaAdminBar;
 
+use Carbon\Carbon;
+
 class AdminBar
 {
     private static $model = null;
@@ -68,19 +70,19 @@ class AdminBar
 
             return $branchname;
         } catch (\Exception $exception) {
-            return '';
+            return config('adminbar.branch') ;
         }
     }
 
     public function getCommit()
     {
         try {
-            $stringfromfile =  file(base_path('.git/COMMIT_EDITMSG'), FILE_USE_INCLUDE_PATH);
+            $stringfromfile = file(base_path('.git/COMMIT_EDITMSG'), FILE_USE_INCLUDE_PATH);
             $commit = $stringfromfile[0] ?? '';
 
             return $commit;
         } catch (\Exception $exception) {
-            return '';
+            return config('adminbar.commit') ;
         }
     }
 
@@ -91,7 +93,9 @@ class AdminBar
             $date = explode(' ', $datetime)[0];
             return $date;
         } catch (\Exception $exception) {
-            return '';
+            return config('adminbar.date')
+                ? Carbon::parse(config('adminbar.date'))->format('Y-m-d')
+                : '';
         }
     }
 
