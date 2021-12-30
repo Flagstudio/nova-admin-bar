@@ -8,11 +8,13 @@ Require this package with composer using the following command:
 
 The defaults configuration settings are set in config/adminbar.php. You can publish the config using this command:
 
-`php artisan vendor:publish --tag=NovaAdminBarConfig`
+`php artisan vendor:publish --tag=NovaAdminBarConfig --force`
 
 Publish assets:
 
-`php artisan vendor:publish --tag=NovaAdminBarAssets`
+`php artisan vendor:publish --tag=NovaAdminBarAssets --force`
+
+The defaults
 
 # Usage
 
@@ -29,3 +31,5 @@ You can specify resource name for model if it named differently
 `{{ AdminBar::setResource('PostResource') }}`
 
 You can also use set resource without setting model to generate link to resource index page.
+
+The settings for the environment parameters in the admin bar are taken from the git by default, but if this is not possible, then they can be obtained from .env.
