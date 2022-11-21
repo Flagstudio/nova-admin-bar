@@ -29,4 +29,19 @@ return [
 
     //Namespace to nova resources
     'resources_namespace' => '\\App\\Nova\\',
+
+    /*
+    //    |--------------------------------------------------------------------------
+    //    | Environment namines
+    //    |--------------------------------------------------------------------------
+    //    |
+    //    | Fill this values for correct mapping to names in your .env values
+    //    |
+    //    */
+    'env_names' => [
+        'prod' => 'production',
+        'stage' => 'staging',
+        'dev' => 'dev',
+        'local' => 'local'
+    ]
 ];
