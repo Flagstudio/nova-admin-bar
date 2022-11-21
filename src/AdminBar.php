@@ -35,7 +35,7 @@ class AdminBar
 
         $branch = $this->getBranch();
         $commit = $this->getCommit();
-        $env = config('app.env');
+        $env = array_search(config('app.env', 'prod'), config('app.env_names'), true) ?: 'prod' ;
         $date = $this->getCommitDate();
         $position = config('adminbar.position');
         $debugBarEnabled = config('debugbar.enabled');
